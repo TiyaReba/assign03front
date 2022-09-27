@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div class='card'>
+    <div class='card-header'>
+     <h1>{{pageTitle}}</h1>
+    </div>
+    
+    <div class='card-body'>            
+      <div class='table-responsive'>
+        <table class='table'
+              *ngIf = 'books && books.length'>
+          <thead>
+            <tr>
+              
+              <th>Book Name</th>
+              <th>Author Name</th>
+              <th>Genre</th>
+              <th>Availability</th>
+            </tr> 
+          </thead>
+          <tbody>  
+              <tr *ngFor='let product of books'>
+                 
+                  <td>{{ product.bookname }}</td>
+                  <td>{{ product.authorname }}</td>
+                  <td>{{ product.genre }}</td>
+                  <td>{{ product.availability}}</td>
+                  <td>
+                    <!-- <button class="btn btn-warning" style="cursor:pointer" *ngIf= (click)="editProduct(product)" style="margin-left: 20px;"> Edit</button> -->
+                    <!-- <button class="btn btn-danger" style="cursor:pointer" deleteBook(books)> Delete</button> -->
+                    <button mat-button color="warn" (click)="deleteBook(product)">Delete</button>
+                    <button mat-button color="accent" (click)="editProduct(product)">Edit</button>
+                  </td> 
+                </tr>              
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

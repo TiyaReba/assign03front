@@ -1,0 +1,91 @@
+
+<div class="tab">
+    <h1 >Sign Up</h1>
+<mat-tab-group>
+<mat-tab label="" style="text-align: centre;"> 
+    <mat-card class="logincard">
+    <form [formGroup]="signupForm" (ngSubmit)="onsubmitsignup(signupForm)">
+      <mat-form-field appearance="outline">
+        <mat-label >First Name</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="firstname">
+        <mat-error *ngIf="AllControlsforsignup?.['firstname']?.errors?.['required'] && submitted"
+        >First Name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label >Last Name</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="lastname">
+        <mat-error *ngIf="AllControlsforsignup?.['lastname']?.errors?.['required'] && submitted"
+        >Last Name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label >Age</mat-label>
+        <input matInput placeholder="Placeholder" type="number" formControlName="age">
+        <mat-error *ngIf="AllControlsforsignup?.['age']?.errors?.['required'] && submitted"
+        >Age is required</mat-error>
+      </mat-form-field>
+
+      <mat-radio-group aria-label="Select an option" formControlName="gender">
+        <mat-radio-button value="female"> Female </mat-radio-button>
+        <span style="margin: 5px;"></span>
+        <mat-radio-button value="male"> Male </mat-radio-button>
+        <span style="margin: 5px;"></span>
+        <mat-radio-button value="others"> Others </mat-radio-button>
+      </mat-radio-group>
+      <br>
+      <br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Role</mat-label>
+        <mat-select   formControlName = "role">
+          <mat-option *ngFor="let item of role" [value]="item.id">
+            {{item.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label >Email</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="email">
+        <mat-error *ngIf="AllControlsforsignup?.['email']?.errors?.['email'] && submitted"
+        >Invalid Email</mat-error>
+
+        <mat-error *ngIf="AllControlsforsignup?.['email']?.errors?.['required'] && submitted"
+        >Email is required</mat-error>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label >Password</mat-label>
+        <input matInput placeholder="Placeholder" [type]="hidesignup? 'password':'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hidesignup = !hidesignup" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidesignup">
+            <mat-icon>{{hidesignup ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+       <mat-error *ngIf="AllControlsforsignup?.['password']?.errors?.['required'] && submitted"
+        >Password is required</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label >Confirm Password</mat-label>
+        <input matInput placeholder="Placeholder" [type]="hidesignup? 'confirmpassword':'text'" formControlName="confirmpassword">
+        <button mat-icon-button matSuffix (click)="hidesignup = !hidesignup" [attr.aria-label]="'Hide confirmpassword'" [attr.aria-pressed]="hidesignup">
+            <mat-icon>{{hidesignup ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+       <mat-error *ngIf="AllControlsforsignup?.['confirmpassword']?.errors?.['required'] && submitted"
+        >Confirm Password is required</mat-error>
+        <mat-error *ngIf="AllControlsforsignup?.['confirmpassword']?.errors?.['validatePasswordConfirmation'] && submitted"
+        >Password Mismatch</mat-error>
+      </mat-form-field>
+      <div style="text-align: center;">
+        <button mat-raised-button color="primary">Register</button>
+      </div>
+    
+    
+    </form>
+  </mat-card>
+  </mat-tab>
+</mat-tab-group>
+  
+
+

@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="tab">
+    <h1 >Add Books</h1>
+<mat-tab-group>
+<mat-tab label="" style="text-align: centre;"> 
+    <mat-card class="logincard">
+    <form [formGroup]="addbookform" (ngSubmit)="editProduct(addbookform)">
+      <mat-form-field appearance="outline">
+        <mat-label >Book Name</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="bookname">
+        <mat-error *ngIf="AllControlsforaddbook?.['bookname']?.errors?.['required']"
+        >Book Name is required</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label >Author Name</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="authorname">
+        <mat-error *ngIf="AllControlsforaddbook?.['authorname']?.errors?.['required']"
+        >Author Name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label >Genre</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="genre">
+        <mat-error *ngIf="AllControlsforaddbook?.['genre']?.errors?.['required']"
+        >Genre is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label >Availability</mat-label>
+        <input matInput placeholder="Placeholder" formControlName="availability">
+        <mat-error *ngIf="AllControlsforaddbook?.['availability']?.errors?.['required']"
+        >Field is required</mat-error>
+      </mat-form-field>
+      <div style="text-align: center;">
+        <button mat-raised-button color="primary" >Update Book</button>
+      </div>
+    </form>
+  </mat-card>
+  </mat-tab>
+</mat-tab-group>
+  

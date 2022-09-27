@@ -1,0 +1,39 @@
+
+<div class="tab">
+    <h1 >Sign In</h1>
+    <mat-tab-group>
+        <mat-tab label="">
+            <mat-card class="logincard">
+            
+            <form [formGroup]="signinForm" (ngSubmit)="onsubmit(signinForm)">
+                <mat-form-field appearance="outline">
+                    <mat-label >Email</mat-label>
+                    <input matInput placeholder="Placeholder" formControlName="email">
+                    <mat-error *ngIf="AllControls?.email?.errors?.['email'] && submitted"
+                    >Invalid Email</mat-error>
+
+                    <mat-error *ngIf="AllControls?.email?.errors?.['required'] && submitted"
+                    >Email is required</mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field appearance="outline">
+                    <mat-label >Password</mat-label>
+                    <input matInput placeholder="Placeholder" [type]="hide? 'password':'text'" formControlName="password">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                   <mat-error *ngIf="AllControls?.password?.errors?.['required'] && submitted"
+                    >Password is required</mat-error>
+                  </mat-form-field>
+
+                <div style="text-align: center;">
+                  <button mat-raised-button color="primary">Login</button>
+                </div>
+            </form>
+        </mat-card>    
+        </mat-tab>
+   
+        
+        
+        
+        
