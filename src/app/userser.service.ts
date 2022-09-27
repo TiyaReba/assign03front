@@ -8,7 +8,7 @@ export class UserserService {
   constructor(private http:HttpClient) { }
 
   signupuser(item:any){
-    return this.http.post<any>('http://localhost:3000/signup',item)
+    return this.http.post<any>('https://assign03back.herokuapp.com/signup',item)
   }
   
 }
