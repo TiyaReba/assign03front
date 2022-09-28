@@ -11,31 +11,36 @@ import { BookserService } from '../bookser.service';
 export class UpdateComponent implements OnInit {
 
   constructor(private bookservice:BookserService,private bp:FormBuilder,private router:Router) { }
-  addbookform = this.bp.group({
-    bookname:['',[Validators.required]],
-    authorname:['',[Validators.required]],
-    genre:['',[Validators.required]],
-    availability:['',[Validators.required]]
+  // addbookform = this.bp.group({
+  //   bookname:['',[Validators.required]],
+  //   authorname:['',[Validators.required]],
+  //   genre:['',[Validators.required]],
+  //   availability:['',[Validators.required]]
 
-  })
+  // })
+  books={
+    bookname:'',
+    authorname:'',
+    genre:'',
+    availability:''  
+    }
 
-  get AllControlsforaddbook(){
-    return this.addbookform.controls
-  }
+  // get AllControlsforaddbook(){
+  //   return this.addbookform.controls
+  // }
 
   ngOnInit(): void {
-    let bookId = localStorage.getItem("editBookId");
+    let bookId = localStorage.getItem("editProductId");
     console.log(bookId);
     this.bookservice.getbooksbyId(bookId).subscribe((data)=>{
-      this.addbookform.getRawValue=JSON.parse(JSON.stringify(data));
+      this.books=JSON.parse(JSON.stringify(data));
+      console.log(this.books)
   })
-
   }
-
-
-  editProduct(values:any)
+  editProduct()
   {    
-    this.bookservice.editProduct(this.addbookform.value);   
+    console.log('edit')
+    this.bookservice.editProduct(this.books);   
     alert("Success");
     this.router.navigate(['books']);
   }

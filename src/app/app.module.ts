@@ -20,6 +20,7 @@ import { SignupComponent } from './signup/signup.component';
 import { AddbookComponent } from './addbook/addbook.component';
 import { HttpClientModule} from '@angular/common/http';
 import { UpdateComponent } from './update/update.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { UpdateComponent } from './update/update.component';
     MatIconModule,
     MatRadioModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

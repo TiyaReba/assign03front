@@ -1,41 +1,68 @@
 <app-header></app-header>
-<div class="tab">
-    <h1 >Add Books</h1>
-<mat-tab-group>
-<mat-tab label="" style="text-align: centre;"> 
-    <mat-card class="logincard">
-    <form [formGroup]="addbookform" (ngSubmit)="editProduct(addbookform)">
-      <mat-form-field appearance="outline">
-        <mat-label >Book Name</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="bookname">
-        <mat-error *ngIf="AllControlsforaddbook?.['bookname']?.errors?.['required']"
-        >Book Name is required</mat-error>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label >Author Name</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="authorname">
-        <mat-error *ngIf="AllControlsforaddbook?.['authorname']?.errors?.['required']"
-        >Author Name is required</mat-error>
-      </mat-form-field>
+<div class="container back" style="margin-top:100px;margin-left:400px;" >
+     
+     
 
-      <mat-form-field appearance="outline">
-        <mat-label >Genre</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="genre">
-        <mat-error *ngIf="AllControlsforaddbook?.['genre']?.errors?.['required']"
-        >Genre is required</mat-error>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label >Availability</mat-label>
-        <input matInput placeholder="Placeholder" formControlName="availability">
-        <mat-error *ngIf="AllControlsforaddbook?.['availability']?.errors?.['required']"
-        >Field is required</mat-error>
-      </mat-form-field>
-      <div style="text-align: center;">
-        <button mat-raised-button color="primary" >Update Book</button>
-      </div>
-    </form>
-  </mat-card>
-  </mat-tab>
-</mat-tab-group>
+      
+  <div class="col-md-5 back" >
   
+    <form (ngSubmit)="editProduct()">
+
+
+        
+      <div class="form-outline mb-4">
+          <label for="Name of Book">Book Name</label>
+        <input type="text"  name="fname"  [(ngModel)]="books.bookname" #fname="ngModel" required class="form-control form-control-lg"
+           />
+          
+      </div>
+
+      
+      <div class="form-outline mb-3">
+          <label for="Name of Book">Author Name</label>
+        <input type="text"  name="Description"  [(ngModel)]="books.authorname" #email="ngModel" required class="form-control form-control-lg"
+          />
+         
+      </div>
+
+     
+
+
+
+      <div class="form-outline mb-3">
+          <label for="Name of Book">Genre</label>
+          <input type="text"  [(ngModel)]="books.genre"  name="pnum" #pnum="ngModel" required    class="form-control form-control-lg"
+           />
+           
+        </div>
+
+       
+
+        
+
+        <div class="form-outline mb-3">
+          <label for="Name of Book">Availability</label>
+          <input type="text"  [(ngModel)]="books.availability" name="password" #password="ngModel" required minlength="6" class="form-control form-control-lg"
+            />
+           
+        </div>
+
+        
+      
+     
+
+      <div class="d-flex justify-content-between align-items-center">
+       
+      </div>
+
+      <div class="text-center text-lg-start mt-4 pt-2">
+        <button type="submit" value="submit"  class="btn btn-primary btn-lg"
+          style="padding-left: 2.5rem; padding-right: 2.5rem;">submit</button>
+        
+      </div>
+
+    </form>
+  </div>
+  
+
+  </div>

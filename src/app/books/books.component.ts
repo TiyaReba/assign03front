@@ -36,11 +36,7 @@ deleteBook(product:any){
   })
 }
 
-// navigatetoedit(product:any){
-//   var  id =product._id;
-//   this.router.navigate([`/edit/${id}`])
 
-// }
 editProduct(product:any)
 {
   localStorage.setItem("editProductId", product._id.toString());

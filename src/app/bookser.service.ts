@@ -25,7 +25,7 @@ export class BookserService {
   }
 
   getbooksbyId(id:any){
-    return this.http.get<any>(`https://assign03back.herokuapp.com/books/${id}`)
+    return this.http.get<any>(`https://assign03back.herokuapp.com/${id}`)
   }
 
 
